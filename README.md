@@ -5,7 +5,7 @@ Join our Discord server: https://discord.gg/v5mqTMjmFn
 
 DM the bot: Freegpt4#5221
 
-Add the bot to your own server: Invite Link
+Add the bot to your own server: [Invite Link](https://discord.gg/v5mqTMjmFn)
 
 **Features**
 
