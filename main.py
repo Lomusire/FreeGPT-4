@@ -11,8 +11,6 @@ app = Flask(__name__)
 gpt4_tokens = os.environ['GPT4_TOKENS'].replace('"',
                                                 '').replace(' ',
                                                             '').split(',\n')
-current_token_index = 0
-client = poe.Client(gpt4_tokens[current_token_index])
 
 # Set up the intents for the bot
 intents = discord.Intents.default()
@@ -25,16 +23,16 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Dictionary mapping user-friendly names to language model codenames
 language_models = {
-  "Sage": "capybara",
-  "ChatGPT": "chinchilla",
-  "GPT-4": "beaver",
-  "Claude": "a2",
-  "Claude+": "a2_2",
-  "Dragonfly": "Dragonfly",
+  "sage": "capybara",
+  "chatgpt": "chinchilla",
+  "gpt-4": "beaver",
+  "claude": "a2",
+  "claude+": "a2_2",
+  "dragonfly": "Dragonfly",
 }
 
 prompt_counter = 0
-max_prompts = 600
+
 
 
 @app.route("/")
@@ -51,6 +49,17 @@ async def on_ready():
   print(f'We have logged in as {bot.user}')
 
 
+async def send_msg(ctx,model,message):
+   async with ctx.typing():
+        model_codename = language_models.get(
+        model.lower(),
+        "capybara")  # Default to "capybara" if model name not found
+        response = ""
+        for chunk in client.send_message(model_codename, message):
+            response += chunk["text_new"]
+
+        await ctx.send(response)
+
 @bot.command()
 async def Ai(ctx, model: str = "ChatGPT", *, message: str):
   """Send a message to GPT-4 and get a response. Optionally specify a different language model."""
@@ -58,22 +67,15 @@ async def Ai(ctx, model: str = "ChatGPT", *, message: str):
   global current_token_index
   global client
 
-  prompt_counter += 1
 
-  if prompt_counter > max_prompts:
-    prompt_counter = 1
-    current_token_index = (current_token_index + 1) % len(gpt4_tokens)
-    client = poe.Client(gpt4_tokens[current_token_index])
+  client = poe.Client(gpt4_tokens[prompt_counter])
 
-  async with ctx.typing():
-    model_codename = language_models.get(
-      model.capitalize(),
-      "capybara")  # Default to "capybara" if model name not found
-    response = ""
-    for chunk in client.send_message(model_codename, message):
-      response += chunk["text_new"]
+  try:
+    await send_msg(ctx,model,message)
 
-    await ctx.send(response)
+  except RuntimeError:
+    prompt_counter+=1
+    await send_msg(ctx,model,message)
 
 
 @bot.command()
