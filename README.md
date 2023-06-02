@@ -31,7 +31,7 @@ Add the bot to your own server: [Invite Link](https://discord.com/api/oauth2/aut
     Create a new pull request.
 
 **License**
-This project is licensed under the MIT License.
+This project is licensed under the GPL License.
 
 **Support**
 If you encounter any issues or have questions, please open an issue, and we'll be glad to help!
