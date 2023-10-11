@@ -35,3 +35,5 @@ This project is licensed under the GPL License.
 
 **Support**
 If you encounter any issues or have questions, please open an issue, and we'll be glad to help!
+
+This project is tested with BrowserStack.
