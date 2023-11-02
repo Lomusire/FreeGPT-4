@@ -47,3 +47,12 @@ This project is licensed under the GPL License.
 If you encounter any issues or have questions, please open an issue, and we'll be glad to help!
 
 This project is tested with BrowserStack.
+## Star History
+
+<a href="https://star-history.com/#Lomusire/FreeGPT-4&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Lomusire/FreeGPT-4&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Lomusire/FreeGPT-4&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Lomusire/FreeGPT-4&type=Date" />
+  </picture>
+</a>
