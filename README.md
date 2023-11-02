@@ -1,3 +1,13 @@
+# Development Paused Notice
+
+Development of FreeGPT-4 has been temporarily paused. We are currently finding a new way to acquire POE premium tokens. 
+
+In the meantime, we recommend using [GPT-4 Unlimited for Phind](https://github.com/Lomusire/gpt4-unlimited-phin) for unlimited free GPT-4 web search access. 
+
+We appreciate your understanding and patience. We'll be back as soon as we can with updates.
+
+
+
 # FreeGPT-4: The AI Assistant Discord Bot
 Unlock the power of AI in your Discord server with FreeGPT-4! This versatile bot provides free access to leading AI models, including ChatGPT, GPT-4, Sage, Claude, and more. Engage in captivating AI-driven conversations and elevate your Discord experience with the magic of AI at no cost!
 
